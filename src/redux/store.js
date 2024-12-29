@@ -1,10 +1,6 @@
-import {configureStore} from '@reduxjs/toolkit'
-import loremReducer from './loremSlice';
+import {createStore , applyMiddleware} from 'redux';
+import { thunk } from 'redux-thunk';
+import { booksReducer } from './reducer';
 
-const store = configureStore({
-    reducer:{
-        lorem: loremReducer,
-    },
-
-});
+const store = createStore(booksReducer, applyMiddleware(thunk));
 export default store;
